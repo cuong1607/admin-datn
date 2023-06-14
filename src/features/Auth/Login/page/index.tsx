@@ -1,4 +1,4 @@
-import Wrapper from '@/components/Wrapper';
+import Wrapper from '../../../../components/Wrapper';
 import { Button, Form, Input } from 'antd';
 import React from 'react';
 // import { authService } from '../../service';
@@ -7,7 +7,7 @@ const LoginPage = () => {
     const [loading, setLoading] = React.useState(false);
 
     const handleSubmit = async (value: { phoneNumber: string; password: string }) => {
-        setLoading(true);
+        // setLoading(true);
 
         // authService.login(value).then((res: { status: any; data: { token: string } }) => {
         //     if (res.status) {
@@ -28,10 +28,10 @@ const LoginPage = () => {
             <div className="gx-app-login-wrap">
                 <div className="gx-app-login-container">
                     <Wrapper loading={loading}>
-                        <div className="gx-app-login-main-content">
+                    <div className="gx-app-login-main-content">
                             <div className="gx-app-login-content">
                                 <Form
-                                    // initialValues={{ email: 'admin@gmail.com', password: 'admin' }}
+                                    initialValues={{ email: 'admin@gmail.com', password: 'admin' }}
                                     onFinish={handleSubmit}
                                     className="gx-signin-form gx-form-row"
                                 >

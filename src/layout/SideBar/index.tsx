@@ -26,7 +26,7 @@ const SideBar = ({
                 trigger={null}
                 collapsed={width < TAB_SIZE ? false : collapsed}
                 collapsible
-                theme="dark"
+                theme="light"
             >
                 {width < TAB_SIZE ? (
                     <Drawer

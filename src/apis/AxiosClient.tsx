@@ -1,5 +1,5 @@
 import { Notification } from '@/utils';
-import axios, { AxiosRequestConfig, AxiosRequestHeaders, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import { camelizeKeys, decamelizeKeys } from 'humps';
 import LocalStorage from './LocalStorage';
 const API_URL = import.meta.env.VITE_API_URL;

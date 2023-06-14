@@ -10,7 +10,7 @@ import { switchSidebar } from './contants';
 import { itemsAdmin } from './Sidebar.Menu';
 import { TAB_SIZE } from '../../config/theme';
 import useWindowSize from '../../hooks/useWindowSize';
-
+import logo_sidebar from '../../assets/images/logo_sidebar.png';
 const SidebarContent = ({
     collapsed,
     handleCallbackCollapsed,
@@ -38,9 +38,8 @@ const SidebarContent = ({
                                 borderRadius: '10px',
                             }}
                         >
-                            {/* <img height="25px" alt="logo_sidebar" src={logo_sidebar} /> */}
+                            <img height="25px" alt="logo_sidebar" src={logo_sidebar} />
                         </div>
-                        {/* <div style={{ color: 'white', fontSize: '24px' }}>STAKA</div> */}
                     </Link>
                 )}
                 <div className="gx-linebar" onClick={handleCallbackCollapsed}>

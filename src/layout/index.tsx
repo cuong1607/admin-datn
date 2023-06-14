@@ -24,20 +24,19 @@ const PageLayout = (PageComponent: React.JSXElementConstructor<any>) => {
         }, [collapsedMobile]);
 
         React.useLayoutEffect(() => {
-            if (localStorage.getItem('token')) {
-                setIsLogin(true);
-            }
+            // if (localStorage.getItem('token')) {
+            //     setIsLogin(true);
+            // }
+            setIsLogin(true);
         }, []);
 
         return isLogin ? (
             <Layout className="gx-app-layout">
                 {/* sidebar */}
-                {location.pathname !== '/vn_pay' && (
-                    <SideBar
+                <SideBar
                         collapsedMobile={collapsedMobile}
                         handleCallbackCollapseMobile={handleCallbackCollapseMobile}
                     />
-                )}
                 {/* content */}
                 <Layout>
                     {/* top content */}

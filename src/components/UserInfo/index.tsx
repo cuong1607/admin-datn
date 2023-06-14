@@ -8,7 +8,7 @@ import IconAntd from '../IconAntd';
 
 import { SET_MODAL_CHANGE_PASSWORD } from '../../context/types';
 // import { appService } from '@/service';
-// import Clock from 'react-live-clock';
+import Clock from 'react-live-clock';
 import styled from 'styled-components';
 
 const UserInfo = () => {
@@ -51,14 +51,16 @@ const UserInfo = () => {
             <Row wrap={false} justify="start" className="gx-avatar-row gx-m-0">
                 <Popover placement="bottomRight" content={userMenuOptions}>
                     <Avatar src={state?.info?.avatar} className="gx-size-40 gx-pointer gx-mr-3" alt="" />
-                    <span className="gx-avatar-name gx-font-weight-bold" style={{ color: 'white' }}>
-                        {state?.info?.fullName}
+                    <span className="gx-avatar-name gx-font-weight-bold" style={{ color: 'black' }}>
+                        {/* {state?.info?.fullName} */}
+                        CngDV
                         <DownOutlined className="gx-fs-sm gx-ml-4" />
                     </span>
                 </Popover>
             </Row>
             <Row justify="start" align="middle" className="gx-app-nav" style={{ marginTop: '15px' }}>
-                <ClockStyled>{/* <Clock format="hh:mm:ss" ticking /> */}</ClockStyled>
+                {/* <Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /> */}
+                <ClockStyled></ClockStyled>
                 <li>
                     <Popover
                         ref={popoverRef}
@@ -66,10 +68,10 @@ const UserInfo = () => {
                         placement="rightBottom"
                         // content={<PushNoti countNoti={countNoti} popoverRef={popoverRef} />}
 
-                        // title="Title"
+                        title="Title"
                     >
                         <Badge showZero count={countNoti || 0}>
-                            <IconAntd style={{ color: 'white' }} icon="BellOutlined" />
+                            <IconAntd style={{ color: 'black' }} icon="BellOutlined" />
                         </Badge>
                     </Popover>
                 </li>

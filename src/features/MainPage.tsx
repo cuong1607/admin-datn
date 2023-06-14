@@ -1,7 +1,7 @@
 import LocalStorage from '../apis/LocalStorage';
 import { PublicRoutes } from '../config/Lazy.routes';
 import { routerPage } from '../config/contants.routes';
-import { AdminRoutes } from '../config/routes';
+import { AdminRoutes, AuthRoutes } from '../config/routes';
 import { ADMIN } from '../contants';
 import PageLayout from '../layout';
 import React from 'react';
@@ -20,13 +20,15 @@ const switchRoute = (role: string) => {
 const MainPage = ({ role }: { role: string }) => {
     const navigate = useNavigate();
     const { pathname } = useLocation();
+    console.log('pathname', pathname)
     // let element = useRoutes(LocalStorage.getToken() ? switchRoute(role) : AuthRoutes);
-    let element = useRoutes(AdminRoutes);
+    let element = useRoutes( switchRoute(role));
 
     const [logged, setLogged] = React.useState(false);
 
     React.useEffect(() => {
-        if (LocalStorage.getToken()) {
+        // navigate('/');
+        if (true) {
             setLogged(true);
             if (pathname === routerPage.login) {
                 return navigate('/');
@@ -37,7 +39,6 @@ const MainPage = ({ role }: { role: string }) => {
                     navigate(routerPage.login);
                     break;
                 default:
-                    navigate(routerPage.login);
                     break;
             }
             navigate(routerPage.login);
