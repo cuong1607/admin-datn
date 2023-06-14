@@ -13,16 +13,16 @@ const AxiosClient = axios.create({
 // handle request to convert all api requests to snake_case
 AxiosClient.interceptors.request.use(async (config: AxiosRequestConfig): Promise<InternalAxiosRequestConfig<any>> => {
     const token = LocalStorage.getToken();
-    const headers = config.headers || {}
+    const headers = config.headers || {};
     if (token && config.headers) {
         headers.token = `${token}`;
-
     }
 
-    if (config.headers && config.headers['Content-Type'] === 'multipart/form-data') return {
-        ...config,
-        headers
-      } as InternalAxiosRequestConfig<any>;;
+    if (config.headers && config.headers['Content-Type'] === 'multipart/form-data')
+        return {
+            ...config,
+            headers,
+        } as InternalAxiosRequestConfig<any>;
 
     // convert request to snake_case
     if (config.params) {
@@ -34,14 +34,14 @@ AxiosClient.interceptors.request.use(async (config: AxiosRequestConfig): Promise
 
     return {
         ...config,
-        headers
-      } as InternalAxiosRequestConfig<any>;
+        headers,
+    } as InternalAxiosRequestConfig<any>;
 });
 
 // handle response to convert all api responses to camelCase
 AxiosClient.interceptors.response.use(
-    (response: AxiosResponse) => {
-        if (response && response.data) {   
+    (response: AxiosResponse<any, any>): AxiosResponse<any, any> | Promise<AxiosResponse<any, any>> => {
+        if (response && response.data) {
             if (!response.data.status || response.data.code === 400 || response.data.code === 403) {
                 switch (response.data.code) {
                     case 400:
@@ -70,8 +70,9 @@ AxiosClient.interceptors.response.use(
                 LocalStorage.removeToken();
                 window.location.reload();
             }
+            const camelizedData = camelizeKeys(response.data);
             // cover response to camelCase
-            return camelizeKeys(response.data);
+            return { ...response, data: camelizedData };
         }
 
         return response;
