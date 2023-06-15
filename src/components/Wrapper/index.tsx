@@ -1,10 +1,10 @@
 import { Spin } from 'antd';
 import { ReactNode } from 'react';
-import { BarLoader } from 'react-spinners';
+import { ClimbingBoxLoader } from 'react-spinners';
 
 const Wrapper = ({ loading = true, children }: { loading?: boolean; children?: ReactNode }) => {
     return (
-        <Spin spinning={loading} indicator={<BarLoader color="orange" />}>
+        <Spin spinning={loading} indicator={<ClimbingBoxLoader color="orange" />}>
             {children}
         </Spin>
     );

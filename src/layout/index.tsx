@@ -34,9 +34,9 @@ const PageLayout = (PageComponent: React.JSXElementConstructor<any>) => {
             <Layout className="gx-app-layout">
                 {/* sidebar */}
                 <SideBar
-                        collapsedMobile={collapsedMobile}
-                        handleCallbackCollapseMobile={handleCallbackCollapseMobile}
-                    />
+                    collapsedMobile={collapsedMobile}
+                    handleCallbackCollapseMobile={handleCallbackCollapseMobile}
+                />
                 {/* content */}
                 <Layout>
                     {/* top content */}
@@ -49,12 +49,6 @@ const PageLayout = (PageComponent: React.JSXElementConstructor<any>) => {
                             <div className="gx-main-content-wrapper" style={{ overflow: 'hidden' }}>
                                 <PageComponent {...props} />
                             </div>
-                            {/* footer content */}
-                            {/* <Footer>
-                                <div className="gx-layout-footer-content">
-                                    <div className="gx-layout-footer-content">WindsSoft Frontend Team - 2022</div>
-                                </div>
-                            </Footer> */}
                         </Content>
                     </ErrorBoundary>
                 </Layout>

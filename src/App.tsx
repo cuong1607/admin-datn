@@ -1,5 +1,5 @@
 import { ConfigProvider, Spin } from 'antd';
-import AppLoading from '../src/assets/appLoading.json';
+import AppLoading from '../src/assets/kinhmat.json';
 import vi_VN from 'antd/lib/locale/vi_VN';
 import moment from 'moment';
 import styled from 'styled-components';
@@ -39,7 +39,6 @@ function App() {
         //         });
         //     });
         // }
-
         // if (LocalStorage.getBG()) {
         //     dispatch({
         //         type: SET_BG_APP,
@@ -107,9 +106,9 @@ const ContainerLoading = styled.div`
     top: 0 !important;
     margin: 0 !important;
     left: 0 !important;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     background-color: white;
